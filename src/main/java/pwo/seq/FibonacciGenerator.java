@@ -9,30 +9,25 @@ import java.math.BigDecimal;
 public class FibonacciGenerator extends Generator {
 
     public FibonacciGenerator() {
-        current = new BigDecimal(0);
-        f_1 = new BigDecimal(1);
-        f_2 = new BigDecimal(0);
+        reset();
     }
 
     @Override
     public void reset() {
         super.reset();
-        current = new BigDecimal(0);
-        f_1 = new BigDecimal(1);
-        f_2 = new BigDecimal(0);
+        current = BigDecimal.ZERO;
+        f_1 = BigDecimal.ONE;
+        f_2 = BigDecimal.ZERO;
     }
 
     @Override
     public BigDecimal nextTerm() {
-
         if (lastIndex > 1) {
             current = f_1.add(f_2);
             f_2 = f_1;
             f_1 = current;
-        } else if (lastIndex == 1) {
-            current = new BigDecimal(1);
         } else {
-            current = new BigDecimal(0);
+            current = BigDecimal.valueOf(lastIndex);
         }
 
         lastIndex++;

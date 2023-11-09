@@ -9,22 +9,21 @@ import java.math.BigDecimal;
 public class LucasGenerator extends FibonacciGenerator {
 
     public LucasGenerator() {
-        current = new BigDecimal(2);
-        f_2 = new BigDecimal(2);
+        reset();
     }
 
     @Override
     public void reset() {
         super.reset();
-        current = new BigDecimal(2);
-        f_2 = new BigDecimal(2);
+        current = BigDecimal.valueOf(2);
+        f_2 = BigDecimal.valueOf(2);
     }
 
     @Override
     public BigDecimal nextTerm() {
         if (lastIndex == 0) {
             lastIndex++;
-            return new BigDecimal(2);
+            return BigDecimal.valueOf(2);
         }
         return super.nextTerm();
     }
